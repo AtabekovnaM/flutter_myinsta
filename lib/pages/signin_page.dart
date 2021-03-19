@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_myinsta/pages/home_page.dart';
 import 'package:flutter_myinsta/pages/signup_page.dart';
 
 class SignInPage extends StatefulWidget {
@@ -15,6 +16,10 @@ class _SignInPageState extends State<SignInPage> {
 
   _callSignUpPage(){
     Navigator.pushReplacementNamed(context, SignUpPage.id);
+  }
+
+  _callHomePage(){
+    Navigator.pushReplacementNamed(context, HomePage.id);
   }
 
   @override
@@ -90,25 +95,28 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     SizedBox(height: 10,),
                     // #signin
-                    Container(
-                      height: 50,
-                      padding: EdgeInsets.only(left: 10,right: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white54.withOpacity(0.2), width: 2
-                        ),
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                      child: Center(
-                        child: Text(
-                            "Sign In",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17
+                    GestureDetector(
+                      onTap: _callHomePage,
+                      child: Container(
+                          height: 50,
+                          padding: EdgeInsets.only(left: 10,right: 10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.white54.withOpacity(0.2), width: 2
+                            ),
+                            borderRadius: BorderRadius.circular(7),
                           ),
-                        ),
-                      )
-                    ),
+                          child: Center(
+                            child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 17
+                              ),
+                            ),
+                          )
+                      ),
+                    )
                   ],
                 ),
             ),
