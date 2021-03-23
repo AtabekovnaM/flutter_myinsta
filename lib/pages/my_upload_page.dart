@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MyUploadPage extends StatefulWidget {
+
+  PageController pageController;
+  MyUploadPage({this.pageController});
+
   @override
   _MyUploadPageState createState() => _MyUploadPageState();
 }
@@ -69,6 +73,7 @@ class _MyUploadPageState extends State<MyUploadPage> {
     if(caption.isEmpty) return;
     if(_image == null ) return;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,11 +94,11 @@ class _MyUploadPageState extends State<MyUploadPage> {
         ),
         actions: [
           IconButton(
-              icon: Icon(
-                Icons.post_add,
-                color: Color.fromRGBO(245,96,64,1),
-              ),
-              onPressed: _uploadNewPost,
+              icon: Icon(Icons.post_add,color: Color.fromRGBO(245,96,64,1),),
+              onPressed: (){
+                widget.pageController.animateToPage(0,
+                    duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+              }
           )
         ],
       ),
