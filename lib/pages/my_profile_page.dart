@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_myinsta/model/post_model.dart';
+import 'package:flutter_myinsta/services/auth_service.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MyProfilePage extends StatefulWidget {
@@ -95,7 +96,16 @@ class _MyProfilePageState extends State<MyProfilePage> {
               style: TextStyle(
                   color: Colors.black, fontFamily: 'Billabong', fontSize: 25),
             ),
-          )
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.exit_to_app,),
+              color: Colors.black87,
+              onPressed: (){
+                AuthService.signOutUser(context);
+              }
+            )
+          ],
       ),
       body: Container(
         width: double.infinity,
